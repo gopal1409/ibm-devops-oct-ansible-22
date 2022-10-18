@@ -9,14 +9,13 @@ User=tomcat
 Group=tomcat
 
 Environment="JAVA_HOME=/usr/lib/jvm/default-java"
-Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom"
 Environment="CATALINA_BASE=/usr/share/tomcat"
 Environment="CATALINA_HOME=/usr/share/tomcat"
 Environment="CATALINA_PID=/usr/share/tomcat/temp/tomcat.pid"
 Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
 
-ExecStart=/usr/share/tomcat/startup.sh
-ExecStop=/usr/share/tomcat/shutdown.sh
+ExecStart=/usr/share/tomcat/bin/startup.sh
+ExecStop=/usr/share/tomcat/bin/shutdown.sh
 
 RestartSec=10
 Restart=always
