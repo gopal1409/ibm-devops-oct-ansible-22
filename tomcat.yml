@@ -24,7 +24,7 @@
         name: tomcat 
         group: tomcat 
     - name: create a tomcat directory 
-       ansible.builtin.file:
+      ansible.builtin.file:
          path: /usr/share/tomcat
          state: directory
          owner: tomcat 
