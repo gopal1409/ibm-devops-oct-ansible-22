@@ -42,3 +42,15 @@
         owner: tomcat 
         group: tomcat 
         creates: /usr/share/tomcat/bin
+    - name: copy the tomcat service 
+      template:
+        src: templates/tomcat.service.j2
+        dest: /etc/systemd/system/tomcat.service 
+      when: ansible_service_mgr == 'sytemd'
+    - name: start and enadle tomcat 
+      service:
+        deamon_reload: yes 
+        name: tomcat 
+        state: started
+        enabled: yes 
+      when: ansible_service_mgr == 'sytemd'
