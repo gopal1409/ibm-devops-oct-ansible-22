@@ -29,4 +29,16 @@
          state: directory
          owner: tomcat 
          group: tomcat 
-   
+    - name: Download Tomcat 
+      ansible.builtin.get_url:
+        url: "{{tomcat_download_url}}"
+        dest: "{{tomcat_download_location}}"  
+    - name: unarvhice the tomcat 
+      ansible.builtin.unarchive:
+        src: "{{tomcat_download_location}}" 
+        dest: /usr/share/tomcat 
+        remote_src: yes #give this tar zxvf name 
+        extra_opts: [--strip-components=1]
+        owner: tomcat 
+        group: tomcat 
+        creates: /usr/share/tomcat/bin
