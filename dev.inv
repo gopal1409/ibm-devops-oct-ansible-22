@@ -1,0 +1,10 @@
+client
+[db]
+db1
+db2
+db3
+192.168.2.0
+[web]
+www.acme.com
+www.acme1.com 
+192.168.0.11

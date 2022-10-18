@@ -1,0 +1,16 @@
+---
+###every yaml start with three dash
+- 
+  #target where our play is going to run 
+  hosts: client
+
+  vars:
+    motd_centos: "Welcome to Linux ansible rock\n"
+    motd_ubuntu: "Welcome to Linux ansible rock\n"
+  ##define list of task that we are executing
+
+  tasks:
+    - name: configure a motd message of the day 
+      copy: 
+        content: "{{motd_ubuntu}}" #any varible u r calling using ansible using curl braces
+        dest: /etc/motd #all the inventory inforamtion
